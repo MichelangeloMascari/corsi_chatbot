@@ -4,3 +4,10 @@ corsi_chatbot/models/20221024-120822-medium-stock.tar.gz
 corsi_chatbot/models/20221024-173221-cloudy-grouse.tar.gz
 corsi_chatbot/models/20221024-173727-inflammable-lifer.tar.gz
 corsi_chatbot/metadati.csv
+corsi_chatbot/actions/requirements-actions.txt
+corsi_chatbot/actions/requirements.txt
+corsi_chatbot/.dockerignore
+corsi_chatbot/docker-compose.debug.yml
+corsi_chatbot/docker-compose.yml
+corsi_chatbot/Dockerfile
+corsi_chatbot/Dockerfile2
