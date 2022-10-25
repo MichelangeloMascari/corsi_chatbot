@@ -1,0 +1,19 @@
+website
+document
+other
+flash
+pdf
+video
+shockwave
+java applet
+audio
+images
+javascript
+executable program
+presentation
+director file
+podcast
+quicktime
+itunes
+ipad app
+geogebra software

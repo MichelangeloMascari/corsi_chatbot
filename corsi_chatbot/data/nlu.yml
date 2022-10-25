@@ -1,0 +1,162 @@
+version: "3.1"
+
+nlu:
+- intent: saluto
+  examples: |
+    - hey
+    - ciao
+    - buongiorno
+    - buonasera
+    - salve
+    
+
+
+
+
+- intent: conferma
+  examples: |
+    - si
+    - certo
+
+- intent: negazione
+  examples: |
+    - no
+    - no grazie
+    - no, non mi serve
+
+
+
+- intent: creazione_corso
+  examples: |
+    - vorrei creare un corso
+    - voglio creare un corso
+    - voglio creare un corso didattico 
+    - vorrei creare un corso didattico
+    - mi serivrebbe creare un corso didattico
+    - fare un corso
+    - voglio produrre un corso
+    - vorrei fare un corso
+    - mi suggerisresti un corso?
+
+- intent: inform
+  examples: |
+   - [Coding](nome_corso)
+   - [Cicli for e while](nome_corso)
+   - [Introduzione al machine learning](nome_corso)
+   - [Introduzione al coding](nome_corso)
+   - Il nome del corso sarà [Introduzione al coding](nome_corso)
+   - Il nome del corso sarà [Introduzione al coding](nome_corso)
+   - [Uso delle sequenze](nome_corso)
+   - [Funzioni e coding](nome_corso)
+   - [Coding - livello base](nome_corso)
+   - [Coding - livello medio](nome_corso)
+   - [Coding - livello avanzato](nome_corso)
+   - [Introduzione alla programmazione](nome_corso)
+   - [6](età) anni
+   - [7](età) anni
+   - [8](età) anni
+   - [9](età)anni
+   - [6](età) 
+   - [7](età) 
+   - [8](età) 
+   - [9](età)
+   - [10](età) 
+   - [11](età) 
+   - [12](età) 
+   - [9](età)
+   - [10](età) anni
+   - [11](età) anni
+   - [sei](età) anni
+   - [sette](età) anni
+   - [otto](età) anni
+   - [nove](età) anni
+   - [dieci](età) anni
+   - [undici](età) anni
+   - [3](numero_lezioni) lezioni
+   - [4](numero_lezioni) lezioni
+   - [5](numero_lezioni) lezioni
+   - [6](numero_lezioni) lezioni
+   - [8](numero_lezioni) lezioni
+   - [24](numero_lezioni) lezioni
+   - [25](numero_lezioni) lezioni
+   - [30](numero_lezioni) lezioni
+   - [cinque](numero_lezioni) lezioni
+   - [dieci](numero_lezioni) lezioni
+   - [quindici](numero_lezioni) lezioni
+   - [venti](numero_lezioni) lezioni
+   - [venticinque](numero_lezioni) lezioni
+   - [trenta](numero_lezioni) lezioni
+   - [10](numero_lezioni)
+   - [20](numero_lezioni)
+   - [15](numero_lezioni)
+   - [2](numero_lezioni)
+   - [5](numero_lezioni)
+   - [venti](numero_lezioni)
+   - [trenta](numero_lezioni)
+   - [dieci](numero_lezioni)
+   - [30 minuti](durata_lezioni)
+   - [40 munti](durata_lezioni)
+   - [mezz'ora](durata_lezioni)
+   - [programmazione](disciplina)
+   - [coding](disciplina)
+   - [machine learning](disciplina)
+   - [humanities](disciplina)
+   - [mathematics and statistics](disciplina)
+   - [science and technolog](disciplina)
+   - [physics](disciplina)
+   - [statistics and probability](disciplina)
+   - [information technology](disciplina)
+   - [data analysis](disciplina)
+   - [biology](disciplina)
+   - [fisica] (disciplina)
+   - [matematica] (disciplina)
+   - [chimica] (disciplina)
+   - [chemistry] (disciplina)
+   - [italiano](lingua)
+   - [inglese](lingua)
+   - [francese](lingua)
+   - [tedesco](lingua)
+   - [cinese](lingua)
+   - [spagnolo](lingua)
+   - [portogese](lingua)
+   - [giapponese](lingua)
+   - [arabo](lingua)
+   - [ita](lingua)
+   - [en](lingua)
+   - [fra](lingua)
+   - [de](lingua)
+   - [chi](lingua)
+   - [gli argomenti del corso sono:](argomenti)
+   - [cicli for, cicli while, sequenze](argomenti)
+   
+- intent: inform_tempo
+  examples: |
+   - [2](tempo) minuti
+   - [5](tempo) minuti
+   - [due](tempo) minuti
+   - [cinque](tempo)
+   - [2](tempo) min
+   - [5](tempo) min
+   - [due](tempo) min
+   - [sei](tempo)
+   - [10](tempo) 
+   - [3](tempo)
+   - [quattro ](tempo) min
+   - [6](tempo)
+   - [8](tempo) 
+   - [9](tempo)
+
+    
+  
+- intent: stop_form
+  examples: |
+    - basta, non voglio continuare!
+    - non mi serve
+    - voglio andare avanti!
+    - stop
+    - non voglio più dare informazione
+    - mi sono stufato di rispondere
+    - mi sono stufata di rispondere
+    - fermati
+
+

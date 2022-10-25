@@ -1,0 +1,12 @@
+english
+french
+spanish
+german
+latin
+chinese
+portuguese
+italian
+russian
+korean
+uzbek
+arabic

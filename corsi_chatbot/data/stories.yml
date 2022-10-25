@@ -1,0 +1,41 @@
+version: "3.1"
+
+stories:
+
+- story: crea corso
+  steps:
+    - intent: saluto
+    - action: utter_saluto
+
+- story: stop form + continue
+  steps:
+      - intent: creazione_corso
+      - action: creazione_corso_form
+      - active_loop: creazione_corso_form
+      - intent: stop_form
+      - action: utter_ask_continuare
+      - intent: conferma
+      - action: creazione_corso_form
+      - active_loop: null
+      - action: ripetizione_esercizi_form
+      - active_loop: ripetizione_esercizi_form
+     
+      
+
+- story: stop form + stop
+  steps:
+      - intent: creazione_corso
+      - action: creazione_corso_form
+      - active_loop: creazione_corso_form
+      - intent: stop_form
+      - action: utter_ask_continuare
+      - intent: negazione
+      - action: action_deactivate_loop
+      - active_loop: null
+      - action: ripetizione_esercizi_form
+      - active_loop: ripetizione_esercizi_form
+     
+
+
+
+

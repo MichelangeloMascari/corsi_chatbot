@@ -1,0 +1,4 @@
+medio bassa
+medio alta
+bassa
+media

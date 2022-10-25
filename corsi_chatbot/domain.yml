@@ -1,0 +1,217 @@
+version: "3.1"
+
+intents:
+  - saluto
+  - conferma
+  - negazione
+  - creazione_corso
+  - inform
+  - inform_tempo
+  - stop_form
+  
+
+entities:
+  - nome_corso
+  - età
+  - numero_lezioni
+  - disciplina
+  - lingua
+  - vuole_ripetizione
+  - tempo
+  - argomenti
+  - durata_lezioni
+ 
+ 
+
+slots:
+  nome_corso:
+    type: text
+    mappings:
+    - type: from_text
+      entity: nome_corso
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: nome_corso
+  età:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: età
+      
+    
+  
+  numero_lezioni:
+    type: text
+    mappings:
+    - type: from_text
+      entity: numero_lezioni
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: numero_lezioni
+      
+
+  durata_lezioni:
+    type: text
+    mappings:
+    - type: from_text
+      entity: durata_lezioni
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: durata_lezioni
+
+  
+  disciplina:
+    type: text
+    mappings:
+    - type: from_text
+      entity: disciplina
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: disciplina
+      
+
+
+  lingua:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: lingua
+  
+  vuole_ripetizione:
+     type: bool
+     mappings:
+     - type: from_intent
+       intent: conferma
+       value: true
+     - type: from_intent
+       intent: negazione
+       value: false
+      
+  tempo:
+    type: text
+    mappings:
+    - type: from_text
+      entity: tempo
+      conditions:
+      - active_loop: ripetizione_esercizi_form
+        requested_slot: tempo
+      
+      
+
+  argomenti:
+    type: text
+    mappings:
+    - type: from_text
+      entity: argomenti
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: argomenti
+ 
+      
+      
+  
+  
+      
+  
+forms:
+  creazione_corso_form:
+    required_slots:
+        - nome_corso
+        - età
+        - numero_lezioni
+        - durata_lezioni
+        - disciplina
+        - lingua
+        - argomenti
+        
+       
+
+  
+  ripetizione_esercizi_form:
+    required_slots:
+        - vuole_ripetizione
+        - tempo
+       
+
+responses:
+  utter_saluto:
+  - text: "Ciao come posso aiutarti?"
+  - text: "Ciao come posso esserti d'aiuto?"
+  - text: "Benvenuto, come posso esserti d'aiuto?"
+  - text: "Benvenuto, come posso aiutarti?"
+  - text: "Benvenuto, di cosa avresti bisogno?"
+
+
+  utter_ask_nome_corso:
+  - text: "Certo! Che nome vuoi dare al corso?"
+  - text: "Va bene! Che nome vuoi dare al corso?"
+  - text: "Certo! Qual sarà il nome del corso?"
+  - text: "Certo! Qual è il nome del corso che vuoi creare?"
+
+  utter_ask_età:
+  - text: "Qual è l'età degli studenti a cui è destinato il corso?"
+  - text: "Che età hanno gli studenti a cui è destinato il corso?"
+
+  utter_ask_numero_lezioni:
+  - text: "Quante lezioni vuoi inserire nel corso?"
+  - text: "Qual è il numero delle lezioni di cui è composto il corso?"
+
+  utter_ask_durata_lezioni:
+  - text: "Quante dovrebbero durare le lezioni in media?"
+  - text: "Qual è la durata delle lezioni?"
+
+  utter_ask_disciplina:
+  - text: "Qual è la disciplina del corso che vuoi creare?"
+  - text: "Qual è la disciplina del corso?"
+
+  utter_ask_lingua:
+  - text: "In quale lingua verrà tenuto il corso?"
+  - text: "Qual è la lingua in cui sarà tenuto il corso?"
+
+  utter_ask_continuare:
+  - text: "Vuoi continuare?"
+  - text: "Vuoi continuare a inserire i dati del corso?"
+
+  utter_submit:
+  - text: "bene!"
+
+  utter_summary:
+   - text: "Le informazioni sul corso sono:\n
+             - nome: {nome_corso}\n
+             - età: {età}\n
+             - numero_lezioni: {numero_lezioni}\n
+             - durata_lezioni: {durata_lezioni}\n
+             - disciplina: {disciplina}\n
+             - lingua: {lingua}\n
+             - vuole_ripetizione: {vuole_ripetizione}\n
+             - tempo: {tempo}\n
+             - argomenti: {argomenti}"
+          
+  utter_ask_vuole_ripetizione:
+  - text: "Desideri che lo studente rispeta l'esericizio qualora non riesca a completarlo entro un tempo considerato?"
+  
+  utter_ask_tempo:
+  - text: "Indica il tempo massimo entro cui lo studente deve completare l'esercizio (espresso in minuti)"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_argomenti:
+  - text: "Inidica gli arogmenti del corso, separati dalla virgola."
+
+  utter_ask_abilità:
+  - text: "Inidica le abilità iniziali che lo studente deve avere prima del corso, separati dalla virgola."
+
+  utter_ask_competenze:
+  - text: "Inidica le competenze che deve raggiungere lo studente alla fine del corso, separati dalla virgola."
+
+actions:
+  - validate_ripetizione_esercizi_form
+  - action_parse_all
+  - action_recommend
+ 
+ 
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

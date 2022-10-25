@@ -1,0 +1,37 @@
+version: "3.1"
+
+rules:
+
+- rule: activate creazione_corso form
+  steps:
+      - intent: creazione_corso
+      - action: creazione_corso_form
+      - active_loop: creazione_corso_form
+
+- rule: submit  creazione_corso form
+  condition:
+  - active_loop: creazione_corso_form
+  steps:
+  - action: creazione_corso_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+
+
+- rule: Submit ripetizione_esercizi_form
+  condition:
+  - active_loop: ripetizione_esercizi_form
+  steps:
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_summary
+  - action: action_parse_all
+  - action: action_recommend
+  
+
+ 
+     
