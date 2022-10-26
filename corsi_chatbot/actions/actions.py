@@ -6,6 +6,7 @@
 
 
 # This is a simple example for a custom action which utters "Hello World!"
+from tokenize import String
 from typing import Any, Text, Dict, List
 #
 from rasa_sdk import Action, Tracker
@@ -75,10 +76,16 @@ class ActionParseAll(Action):
         #Step 2: iterate over the dict keys and parse
         #Step 3: add every parsed result to a Json called request.json and send it to the recsys, save it locally
         
-
-
+        #####
+        #####
+        #####
+        #Controllare la velocità di risposta senza usare speller fast
+        #####
+        #####
+        #####
+        
         #instantiate speller, translator and embedder
-        spell = Speller('it', fast=True)
+        spell = Speller('it')
         translator = GoogleTranslator(source = "auto", target='en')
         embedder = SentenceTransformer('all-MiniLM-L6-v2')
 
@@ -142,7 +149,7 @@ class ActionParseAll(Action):
                 keyword_item = {key: total_kw_list}
                 request.update(keyword_item)
 
-            #placeholder print, send it to the RecSys(needs to be written)
+            #placeholder print,, not needed in production
             print(json.dumps(request))
 
             #save the request as a json file named: sender_id_currenttime.json
@@ -166,8 +173,13 @@ class ActionRecommend(Action):
         dispatcher.utter_message("Aspetta qualche secondo, sto interrogando il mio sistema per proporti delle risorse")
         ## Creare gli embedding di Disciplina, Keyword, language e duration, questi sono le relazioni del grafo usao come model
         # Capire bene il model e scrivere una funzione di interrogazione per ottenere la raccomandazione
-
+        # Salvare le reccomendation su uno storage remoto sotto forma di Json, per poi usarlo nel processo
+        # Dei diagrammi 3 e 4
         return []
+
+    def recommend(self, recommeder_model, user_embedding, item_embedding) -> List[String]:
+        return[]
+
     
       
         
